@@ -16,9 +16,9 @@ route.get("/getAllImages", async(req,res)=>{
 
 })
 
-route.get("/addImage", async(req,res)=>{
+route.post("/addImage", async(req,res)=>{
     try{
-        const result = await imageUploads.findOne({
+        const result = await imageUploads.create({
             imageURL:req.body.imageURL,
             imageTitle:req.body.imageTitle,
             imageDis:req.body.imageDis,
