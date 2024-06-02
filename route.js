@@ -4,8 +4,8 @@ const routes = express.Router();
 const imageView = require("./routes/imageViewsRoute")
 const imageUpload = require("./routes/imageUploadRoute")
 
-routes.use("/image",imageView);
-routes.use("/view",imageUpload)
+routes.use("/view",imageView);
+routes.use("/image",imageUpload)
 
 
 module.exports = routes;
