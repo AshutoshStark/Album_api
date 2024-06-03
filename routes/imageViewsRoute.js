@@ -9,7 +9,7 @@ route.get("/getViews",async(req,res)=>{
 
     try{
         const imageID = req.query.imageID;
-        const result = await imageView.findOne({
+        const result = await imageView.find({
             imageID:imageID,
         })
         res.status(200).json({Views:result});
