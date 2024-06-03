@@ -1,4 +1,3 @@
-const { Timestamp } = require("mongodb");
 const mongoose = require("mongoose");
 
 const imageView = new mongoose.Schema({
@@ -11,7 +10,7 @@ const imageView = new mongoose.Schema({
         required:true,
     }
 },
-{Timestamp:true},
+{timestamp:true},
 )
 
 module.exports = mongoose.model("imageView",imageView);

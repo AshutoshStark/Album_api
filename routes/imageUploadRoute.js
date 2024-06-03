@@ -15,6 +15,21 @@ route.get("/getAllImages", async(req,res)=>{
     }
 
 })
+route.get("/getImages", async(req,res)=>{
+
+    const image_id = req.query.image_id;
+
+    try{
+        const result = await imageUploads.findOne({
+            _id:image_id,
+        })
+        res.status(200).json({imageUploads:result})
+    }
+    catch(error){
+        res.status(500),json({message:error.message})
+    }
+
+})
 
 route.post("/addImage", async(req,res)=>{
     try{
@@ -22,6 +37,7 @@ route.post("/addImage", async(req,res)=>{
             imageURL:req.body.imageURL,
             imageTitle:req.body.imageTitle,
             imageDis:req.body.imageDis,
+            view:req.body.view,
         })
         res.status(200).json({
             imageUploads:result,
@@ -36,9 +52,24 @@ route.post("/addImage", async(req,res)=>{
     }
 })
 
+route.put("/getView",async(req,res)=>{
+
+    const image_id = req.query.image_id;
+
+    try{    
+        await imageUploads.updateOne({_id:image_id},
+            {
+                view:req.body.view,
+            });
+        res.status(200).json({success:true});
+    }catch(error){
+        res.status(500).json({success:false,message:error.message});
+    }
+})
+
 route.delete("/deleteImage", async(req,res)=>{
     try{
-        const image_id = req.body.image_id;
+        const image_id = req.query.image_id;
         const result = await imageUploads.deleteOne({
             _id:image_id,
         })

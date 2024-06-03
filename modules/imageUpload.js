@@ -1,4 +1,3 @@
-const { timeStamp } = require("console")
 const mongoose = require("mongoose")
 
 const imageUpload = new mongoose.Schema({
@@ -14,6 +13,10 @@ const imageUpload = new mongoose.Schema({
     imageDis:{
         type:String,
         required:true,
+    },
+    view:{
+        type:Number,
+        required:false,
     }
 
 },
