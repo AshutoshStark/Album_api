@@ -6,6 +6,10 @@ const imageView = new mongoose.Schema({
         type:String,
         required:true,
     },
+    imageID:{
+        type:String,
+        required:true,
+    }
 },
 {Timestamp:true},
 )

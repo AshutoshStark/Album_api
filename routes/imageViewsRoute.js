@@ -8,7 +8,10 @@ const imageView = require("../modules/imageViews");
 route.get("/getViews",async(req,res)=>{
 
     try{
-        const result = await imageView.find({})
+        const imageID = req.query.imageID;
+        const result = await imageView.findOne({
+            _id:imageID,
+        })
         res.status(200).json({Views:result});
     }
     catch(error){
@@ -26,6 +29,7 @@ route.get("/addView",async(req,res)=>{
 
         const result = await imageView.create({
             NumberViews:req.body.NumberViews,
+            imageID:req.body.imageID,
         })
         res.status(200).json({imageView:result,success:true})
     }
