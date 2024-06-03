@@ -24,7 +24,7 @@ route.get("/getViews",async(req,res)=>{
 
 //this route will find specific subject mentor
 
-route.get("/addView",async(req,res)=>{
+route.post("/addView",async(req,res)=>{
     try{
 
         const result = await imageView.create({
