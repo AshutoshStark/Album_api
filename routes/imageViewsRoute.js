@@ -10,7 +10,7 @@ route.get("/getViews",async(req,res)=>{
     try{
         const imageID = req.query.imageID;
         const result = await imageView.findOne({
-            _id:imageID,
+            imageID:imageID,
         })
         res.status(200).json({Views:result});
     }
@@ -26,7 +26,6 @@ route.get("/getViews",async(req,res)=>{
 
 route.post("/addView",async(req,res)=>{
     try{
-
         const result = await imageView.create({
             NumberViews:req.body.NumberViews,
             imageID:req.body.imageID,
