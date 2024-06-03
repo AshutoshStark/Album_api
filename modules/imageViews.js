@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 const imageView = new mongoose.Schema({
     NumberViews:{
-        type:String,
+        type:Number,
         required:true,
     },
     imageID:{
